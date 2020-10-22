@@ -1,7 +1,7 @@
 import React from "react";
 import { toast, ToastContainer } from "react-toastify";
 import styled from "styled-components";
-import { SIGN_IN } from "./Icons";
+
 
 const Container = styled.div`
   width: 1920px;
@@ -50,24 +50,24 @@ width: 251px;
 
 
 export default () => {
-    const Hello = () => {
-        toast.error("회원가입에 실패하였습니다. 😢")
-    }
-    Hello();
-    return (
-        <Container>
-            <GonstudioBox>
-                <FontType>
-                    회원가입에 실패하였습니다.
+  const Hello = () => {
+    toast.error("회원가입에 실패하였습니다. 😢")
+  }
+  Hello();
+  return (
+    <Container>
+      <GonstudioBox>
+        <FontType>
+          회원가입에 실패하였습니다.
                 </FontType>
-                <FontType>
-                    <a href="https://twigfarm.net/">메인 홈페이지로 이동하시겠습니까?</a>
-                </FontType>
-                <FontType>
-                    <a href="http://localhost:3000/">이전 페이지로 이동하시겠습니까?</a>
-                </FontType>
-            </GonstudioBox>
-            <ToastContainer position={toast.POSITION.TOP_CENTER} />
-        </Container>
-    );
+        <FontType>
+          <a href="https://twigfarm.net/">메인 홈페이지로 이동하시겠습니까?</a>
+        </FontType>
+        <FontType>
+          <a href="http://localhost:3000/">이전 페이지로 이동하시겠습니까?</a>
+        </FontType>
+      </GonstudioBox>
+      <ToastContainer position={toast.POSITION.TOP_CENTER} />
+    </Container>
+  );
 }
