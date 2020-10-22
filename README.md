@@ -27,9 +27,9 @@ Front-end 배포에 사용한것은 'netlify'를 사용하였습니다 <br/>
 #2.mongoose - mongoDB와의 연결을 위하여 mongoose 모듈을 사용하였습니다.<br/>
 #3.mongo Atlas - 실제 mongoDB를 빌드하기 위하여 사용하였습니다.<br/>
 ### Back-end 배포
-이번 Back-end part에서 사용한 것은 크게 두가지였습니다.
-#1.Heroku - 실제 백엔드 프로젝트 전체를 빌드하는데 사용하였습니다.
-#2.mongoAtlas - mongoDB를 실제로 빌드하는데 사용하였습니다.
+이번 Back-end part에서 사용한 것은 크게 두가지였습니다.<br/>
+#1.Heroku - 실제 백엔드 프로젝트 전체를 빌드하는데 사용하였습니다.<br/>
+#2.mongoAtlas - mongoDB를 실제로 빌드하는데 사용하였습니다.<br/>
 
 ### 이번 코딩테스트를 마무리하며...
 이번 프로젝트를 통해서, 회사 자체내에서 사용하는 React의 모듈들을 사용해보면서 좋은 경험을 할 수 있는 시간을 가졌던거 같습니다.<br/> 
