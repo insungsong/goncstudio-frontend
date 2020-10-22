@@ -137,6 +137,8 @@ const SmallNextBox = styled.div`
   justify-content:flex-start;
 `;
 
+const GoncstudioForm = styled.form``;
+
 const BootstrapInput = withStyles((theme) => ({
   root: {
     'label + &': {
@@ -175,7 +177,8 @@ const BootstrapInput = withStyles((theme) => ({
 
 const App = () => {
   //직업의 value를 담는 hooks
-  const [value, setValue] = useState("");
+  const [jobCategory, setJobCategory] = useState("");
+  console.log(jobCategory);
 
   //email이 정규식에 부합하는지 보기위한 hooks
   const [emailRegularExpression, setEmailRegularExpression] = useState(false);
@@ -188,6 +191,7 @@ const App = () => {
 
   //화폐단위를 선택하는지를 보는 hooks
   const [isCurrency, setIsCurrency] = useState("화폐단위를 선택하세요.");
+
 
   //회사 설립 년도를 선택하는지를 보는 hooks
   const [isChoiceYear, setIsChoiceYear] = useState("");
@@ -211,7 +215,7 @@ const App = () => {
     setEmailRegularExpression(regExp.test(email.value));
 
     //password 정규식 filter
-    if (8 <= password.value.length <= 16 && num.test(password.value) && eng.test(password.value) && spe.test(password.value)) {
+    if (password.value.length >= 8 && password.value.length <= 16 && num.test(password.value) && eng.test(password.value) && spe.test(password.value)) {
       setPasswordRegularExpression(true);
     } else {
       setPasswordRegularExpression(false)
@@ -220,6 +224,7 @@ const App = () => {
     //회사이메일 정규식 filter
     setCompanyNameRegularExpression(regExp.test(companyEmail.value));
 
+    // 설립일 Vanilla JS를 활용하여 만드는 스타일 코드를 위한 조건코드(1-1)
     // var today = new Date();
     // var previousYear = 1919;
     // var birthday = today.getFullYear();
@@ -242,104 +247,101 @@ const App = () => {
   return (
     <div className="App">
       <Container>
-        <GonstudioBox>
-          <SubConstudioBox>
-            <SubConstudioContent>Gconstudio 계정 만들기</SubConstudioContent>
-            <MiniSubConstudioContent>하나의 계정으로 모든 지콘스튜디오 서비스를 이용할 수 있습니다.</MiniSubConstudioContent>
-            <RadioGroup style={{ display: "block" }} aria-label="job" value={value} onChange={(e) => {
-              const { target: { value } }
-                = e
-              setValue(value);
-            }}>
-              <FormControlLabel value="translationCompany" control={<Radio style={{ color: "#f15642" }} />} label="번역가" />
-              <FormControlLabel value="client" control={<Radio style={{ color: "#f15642" }} />} label="의뢰인" />
-              <FormControlLabel value="translator" control={<Radio style={{ color: "#f15642" }} />} label="번역가" />
-            </RadioGroup>
+        <GoncstudioForm method="post" action={`http://localhost:4000/signUp?jobCategory=${jobCategory}&email=${email.value}&password=${password.value}&companyEmail=${companyEmail.value}&isCurrency=${isCurrency}&isChoiceYear=${isChoiceYear}`}>
+          <GonstudioBox>
+            <SubConstudioBox>
+              <SubConstudioContent>Gconstudio 계정 만들기</SubConstudioContent>
+              <MiniSubConstudioContent>하나의 계정으로 모든 지콘스튜디오 서비스를 이용할 수 있습니다.</MiniSubConstudioContent>
+              <RadioGroup style={{ display: "block" }} aria-label="job" value={jobCategory} onChange={(e) => {
+                const { target: { value } }
+                  = e
+                setJobCategory(value);
+              }}>
+                <FormControlLabel value="translationCompany" control={<Radio style={{ color: "#f15642" }} />} label="번역가" />
+                <FormControlLabel value="client" control={<Radio style={{ color: "#f15642" }} />} label="의뢰인" />
+                <FormControlLabel value="translator" control={<Radio style={{ color: "#f15642" }} />} label="번역가" />
+              </RadioGroup>
 
-            {/* <CheckBoxDiv style={{ paddingTop: "10px" }}>
-              <CheckBox name="checkInfo" value="translationCompany" />번역가
-                  <CheckBox name="checkInfo" value="client" />의뢰인
-                  <CheckBox name="checkInfo" value="translator" />번역가
-              </CheckBoxDiv> */}
-            <SubConstudioContent>기본정보입력</SubConstudioContent>
+              <SubConstudioContent>기본정보입력</SubConstudioContent>
 
+              <TextField type="email" style={{ width: "100%" }} {...email} label="이메일(아이디)를 입력하세요" variant="outlined" />
+              {emailRegularExpression === false ? <WarningFont style={{ color: "red" }}>이메일양식을 확인하세요</WarningFont> : <WarningFont style={{ color: "green" }}>올바른 양식 입니다!</WarningFont>}
 
+              <TextField type="password" style={{ width: "100%" }} {...password} label="비밀번호를 입력하세요" variant="outlined" />
+              {passwordRegularExpression === false ? <WarningFont style={{ color: "red" }}>비밀번호는 8자리 이상, 16자리 이하이고 영문, 숫자, 특수문자가 각 1자리 이상 포함되어야 합니다</WarningFont> : <WarningFont style={{ color: "green" }}>올바른 양식 입니다!</WarningFont>}
 
-            {/* <CheckInput type="email" {...email} placeholder="이메일(아이디)를 입력하세요" required /> */}
-            <TextField type="email" style={{ width: "100%" }} {...email} label="이메일(아이디)를 입력하세요" variant="outlined" />
-            {emailRegularExpression === false ? <WarningFont style={{ color: "red" }}>이메일양식을 확인하세요</WarningFont> : <WarningFont style={{ color: "green" }}>올바른 양식 입니다!</WarningFont>}
-            {/* <CheckInput type="password" {...password} placeholder="비밀번호를 입력하세요" required /> */}
-            <TextField type="password" style={{ width: "100%" }} {...password} label="비밀번호를 입력하세요" variant="outlined" />
-            {passwordRegularExpression === false ? <WarningFont style={{ color: "red" }}>비밀번호는 8자리 이상, 16자리 이하이고 영문, 숫자, 특수문자가 각 1자리 이상 포함되어야 합니다</WarningFont> : <WarningFont style={{ color: "green" }}>올바른 양식 입니다!</WarningFont>}
-            {/* <CheckInput type="email" {...companyEmail} placeholder="회사명을 입력하세요." required /> */}
-            <TextField type="email" style={{ width: "100%" }} {...companyEmail} label="회사명을 입력하세요." variant="outlined" />
-            {companyNameRegularExpression === false ? <WarningFont style={{ color: "red" }}>이메일 양식을 확인하세요</WarningFont> : <WarningFont style={{ color: "green" }}>올바른 양식 입니다!</WarningFont>}
-            {/* <SelectBox onChange={(e) => {
-              const { target: { value } } = e;
-              setIsCurrency(value);
-            }}>
-              <option value="">화폐단위를 선택하세요.</option>
-              <option value="won">원(₩)</option>
-              <option value="GBP">파운드(£)</option>
-              <option value="CNY" >위안(¥)</option>
-              <option value="USD">달러($)</option>
-            </SelectBox> */}
-            <FormControl style={{ width: "100%" }} >
-              <Select
-                labelId="demo-customized-select-label"
-                id="demo-customized-select"
-                value={isCurrency}
+              <TextField type="email" style={{ width: "100%" }} {...companyEmail} label="회사명을 입력하세요." variant="outlined" />
+              {companyNameRegularExpression === false ? <WarningFont style={{ color: "red" }}>이메일 양식을 확인하세요</WarningFont> : <WarningFont style={{ color: "green" }}>올바른 양식 입니다!</WarningFont>}
 
-                onChange={(e) => {
-                  const { target: { value } } = e;
-                  setIsCurrency(value);
-                }}
-                input={<BootstrapInput />}
-              >
-                <MenuItem value="화폐단위를 선택하세요.">
-                  <FontType>화폐단위를 선택하세요.</FontType>
-                </MenuItem>
-                <MenuItem value={"won"}>원(₩)</MenuItem>
-                <MenuItem value={"GBP"}>파운드(£)</MenuItem>
-                <MenuItem value={"CNY"}>위안(¥)</MenuItem>
-                <MenuItem value={"USD"}>달러($)</MenuItem>
-              </Select>
-            </FormControl>
+              <FormControl style={{ width: "100%" }} >
+                <Select
+                  labelId="demo-customized-select-label"
+                  id="demo-customized-select"
+                  value={isCurrency}
 
-            {isCurrency === "화폐단위를 선택하세요." || isCurrency === "" ? <WarningFont style={{ color: "red" }}>필수입력 사항입니다.</WarningFont> : <WarningFont style={{ color: "green" }}>올바른 양식 입니다!</WarningFont>}
-            {/* <SelectBox
+                  onChange={(e) => {
+                    const { target: { value } } = e;
+                    setIsCurrency(value);
+                  }}
+                  input={<BootstrapInput />}
+                >
+                  <MenuItem value="화폐단위를 선택하세요.">
+                    <FontType>화폐단위를 선택하세요.</FontType>
+                  </MenuItem>
+                  <MenuItem value={"won"}>원(₩)</MenuItem>
+                  <MenuItem value={"GBP"}>파운드(£)</MenuItem>
+                  <MenuItem value={"CNY"}>위안(¥)</MenuItem>
+                  <MenuItem value={"USD"}>달러($)</MenuItem>
+                </Select>
+              </FormControl>
+
+              {isCurrency === "화폐단위를 선택하세요." || isCurrency === "" ? <WarningFont style={{ color: "red" }}>필수입력 사항입니다.</WarningFont> : <WarningFont style={{ color: "green" }}>올바른 양식 입니다!</WarningFont>}
+
+              {/* 
+              //해당 부분의 주석을 제거하고 310번째줄을 주석처리 후, useEffect Function의 227~239번을 하면 다른 스타일의 설립기념을 볼 수 있습니다 (227번째 줄의 1-1).
+              <SelectBox
               id="year"
               title="년"
               onChange={(e) => {
                 const { target: { value } } = e;
                 setIsChoiceYear(value);
               }}
-            /> */}
+              /> 
+            */}
+              <TextField
+                id="date"
+                type="date"
+                style={{ width: "450px" }}
+                input={<BootstrapInput />}
+                onChange={(e) => {
+                  const { target: { value } } = e;
+                  setIsChoiceYear(value);
+                }}
+              />
 
 
-            <TextField
-              id="date"
-              type="date"
-              style={{ width: "450px" }}
-              input={<BootstrapInput />}
-              onChange={(e) => {
-                const { target: { value } } = e;
-                setIsChoiceYear(value);
-              }}
-            />
 
 
-
-
-            {isChoiceYear === "" ? <WarningFont style={{ color: "red" }}>필수입력 사항입니다.</WarningFont> : <WarningFont style={{ color: "green" }}>올바른 양식 입니다!</WarningFont>}
-            <SmallNextBox>
-              <CheckBtn>
-                <LoginP onClick={() => { toast.warning("해당 이벤트는 아직 개발중에 있습니다 😢") }}>다음</LoginP>
-              </CheckBtn>
-              <LoginP style={{ color: "grey", borderBottom: "solid 1px" }} onClick={() => { toast.warning("해당 이벤트는 아직 개발중에 있습니다 😢") }}>로그인</LoginP>
-            </SmallNextBox>
-          </SubConstudioBox>
-        </GonstudioBox>
+              {isChoiceYear === "" ? <WarningFont style={{ color: "red" }}>필수입력 사항입니다.</WarningFont> : <WarningFont style={{ color: "green" }}>올바른 양식 입니다!</WarningFont>}
+              <SmallNextBox>
+                <CheckBtn onClick={(e) => {
+                  if (!emailRegularExpression ||
+                    !passwordRegularExpression ||
+                    !companyNameRegularExpression || isCurrency === "화폐단위를 선택하세요." ||
+                    isChoiceYear === "") {
+                    toast.error("해당 정보를 정확히 기입해주시기 바랍니다");
+                    e.preventDefault();
+                  } else {
+                    toast.success("계정 정보 확인 및 생성중입니다");
+                  }
+                }} >
+                  <LoginP>다음</LoginP>
+                </CheckBtn>
+                <LoginP style={{ color: "grey", borderBottom: "solid 1px" }} onClick={() => { toast.warning("해당 이벤트는 아직 개발중에 있습니다 😢") }}>로그인</LoginP>
+              </SmallNextBox>
+            </SubConstudioBox>
+          </GonstudioBox>
+        </GoncstudioForm>
       </Container>
       <ToastContainer position={toast.POSITION.TOP_CENTER} />
     </div >
