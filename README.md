@@ -8,8 +8,8 @@
 ## 지금부터 프로젝트에 대한 설명을 드리도록 하겠습니다.❗️
 ### 이번 프로젝트는 크게 두가지의 프로젝트 파일로 분리하여 작업하였습니다.
 #1.Front-end (트위그팜 회사에서 제시한 프로젝트에 관한 파일입니다.)<br/>
-#2.Back-end (Front-end에서 넘겨주는 매개변수값들을 가지고 해당 Database에 User정보가 없다면 회원가입 완료 페이지를<br/>
-User가 존재한다면 로그인된 화면 페이지를 보여주는<br/> Back-end작업을 수행하였습니다.)<br/>
+#2.Back-end (Front-end에서 넘겨주는 매개변수값들을 가지고 해당 Database에 User정보가 없다면<br/> 
+회원가입 완료 페이지를 User가 존재한다면 로그인된 화면 페이지를 보여주는 Back-end작업을 수행하였습니다.)<br/>
 
 ## 👨🏻‍💻Front-end Part
 ### technology Stack
