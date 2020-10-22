@@ -2,8 +2,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom"
 import App from "./App"
 import SignIn from "./SignIn"
-import SignUp from "./SignUp"
 import SignUpFail from "./SignupFail"
+import SignUp from "./SignUp"
 
 export default () => {
     return (
