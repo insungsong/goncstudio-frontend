@@ -59,7 +59,7 @@ export default () => {
       <GonstudioBox>
         <FontType>
           회원가입에 실패하였습니다.
-                </FontType>
+        </FontType>
         <FontType>
           <a href="https://twigfarm.net/">메인 홈페이지로 이동하시겠습니까?</a>
         </FontType>
