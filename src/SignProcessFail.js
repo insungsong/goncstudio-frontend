@@ -48,10 +48,10 @@ export default () => {
                     회원가입에 실패하였습니다.
         </FontType>
                 <FontType>
-                    <a href="https://twigfarm.net/">메인 홈페이지로 이동하시겠습니까?</a>
+                    <a style={{ textDecoration: "none", color: "#646464" }} href="https://twigfarm.net/">메인 홈페이지로 이동하시겠습니까?</a>
                 </FontType>
                 <FontType>
-                    <a href="http://localhost:3000/">이전 페이지로 이동하시겠습니까?</a>
+                    <a style={{ textDecoration: "none", color: "#646464" }} href="https://goncstudio.netlify.app/#/">이전 페이지로 이동하시겠습니까?</a>
                 </FontType>
             </GonstudioBox>
             <ToastContainer position={toast.POSITION.TOP_CENTER} />

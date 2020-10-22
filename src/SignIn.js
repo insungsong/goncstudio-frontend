@@ -60,7 +60,7 @@ export default () => {
           로그인을 성공했습니다!
                 </FontType>
         <FontType>
-          <a href="https://twigfarm.net/">메인 화면으로 이동하시겠습니까?</a>
+          <a style={{ textDecoration: "none", color: "#646464" }} href="https://twigfarm.net/">메인 화면으로 이동하시겠습니까?</a>
         </FontType>
         <FontType></FontType>
       </GonstudioBox>
