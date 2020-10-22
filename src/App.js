@@ -247,7 +247,7 @@ const App = () => {
   return (
     <div className="App">
       <Container>
-        <GoncstudioForm method="post" action={`http://localhost:4000/signUp?jobCategory=${jobCategory}&email=${email.value}&password=${password.value}&companyEmail=${companyEmail.value}&isCurrency=${isCurrency}&isChoiceYear=${isChoiceYear}`}>
+        <GoncstudioForm method="post" action={`https://goncstudio.herokuapp.com/signUp?jobCategory=${jobCategory}&email=${email.value}&password=${password.value}&companyEmail=${companyEmail.value}&isCurrency=${isCurrency}&isChoiceYear=${isChoiceYear}`}>
           <GonstudioBox>
             <SubConstudioBox>
               <SubConstudioContent>Gconstudio 계정 만들기</SubConstudioContent>
