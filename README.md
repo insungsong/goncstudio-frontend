@@ -16,7 +16,7 @@
 #0.creat-react-app : 속도있게 진행할 수 있다는 장점으로 인해, 프로젝트를 최초 빌드할때 사용하였습니다.<br/>
 #1.React - Front-end의 전반적인 부분을 React.js를 통해서 진행하였습니다.<br/>
 #2.styled.component - css styling을 React의 Components작업처럼 할 수 있게 해주는 모듈을 사용하였습니다.<br/>
-#3.React Hooks - Form tag안에있는 input value값들의 유효성 검사 보다 효율적으로 진행하기 위해 사용하였습니다.<br/>
+#3.React Hooks - Form tag안에있는 input value값들의 유효성 검사를 보다 효율적으로 진행하기 위해 사용하였습니다.<br/>
 ### Front-end 배포
 Front-end 배포에 사용한것은 'netlify'를 사용하였습니다 <br/>
 
