@@ -1,7 +1,6 @@
 import React from "react";
 import { toast, ToastContainer } from "react-toastify";
 import styled from "styled-components";
-import { SIGN_IN } from "./Icons";
 
 const Container = styled.div`
   width: 1920px;
@@ -50,22 +49,22 @@ width: 251px;
 
 
 export default () => {
-    const Hello = () => {
-        toast.success("로그인 되었습니다. 😊")
-    }
-    Hello();
-    return (
-        <Container>
-            <GonstudioBox>
-                <FontType>
-                    로그인을 성공했습니다!
+  const Hello = () => {
+    toast.success("로그인 되었습니다. 😊")
+  }
+  Hello();
+  return (
+    <Container>
+      <GonstudioBox>
+        <FontType>
+          로그인을 성공했습니다!
                 </FontType>
-                <FontType>
-                    <a href="https://twigfarm.net/">메인 화면으로 이동하시겠습니까?</a>
-                </FontType>
-                <FontType></FontType>
-            </GonstudioBox>
-            <ToastContainer position={toast.POSITION.TOP_CENTER} />
-        </Container>
-    );
+        <FontType>
+          <a href="https://twigfarm.net/">메인 화면으로 이동하시겠습니까?</a>
+        </FontType>
+        <FontType></FontType>
+      </GonstudioBox>
+      <ToastContainer position={toast.POSITION.TOP_CENTER} />
+    </Container>
+  );
 }

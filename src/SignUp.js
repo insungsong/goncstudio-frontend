@@ -1,7 +1,7 @@
 import React from "react";
 import { toast, ToastContainer } from "react-toastify";
 import styled from "styled-components";
-import { SIGN_IN } from "./Icons";
+
 
 const Container = styled.div`
   width: 1920px;
@@ -55,22 +55,22 @@ text-align:center;
 
 
 export default () => {
-    const Hello = () => {
-        toast.success("회원가입을 축하드립니다 😊")
-    }
-    Hello();
-    return (
-        <Container>
-            <GonstudioBox>
+  const Hello = () => {
+    toast.success("회원가입을 축하드립니다 😊")
+  }
+  Hello();
+  return (
+    <Container>
+      <GonstudioBox>
 
-                <SubConstudioContent>회원가입 및 로그인에 성공하셨습니다 🎉</SubConstudioContent>
+        <SubConstudioContent>회원가입 및 로그인에 성공하셨습니다 🎉</SubConstudioContent>
 
-                <FontType >
-                    <a href="https://twigfarm.net/">메인 화면으로 이동하시겠습니까?</a>
-                </FontType>
-                <FontType></FontType>
-            </GonstudioBox>
-            <ToastContainer position={toast.POSITION.TOP_CENTER} />
-        </Container>
-    );
+        <FontType >
+          <a href="https://twigfarm.net/">메인 화면으로 이동하시겠습니까?</a>
+        </FontType>
+        <FontType></FontType>
+      </GonstudioBox>
+      <ToastContainer position={toast.POSITION.TOP_CENTER} />
+    </Container>
+  );
 }
